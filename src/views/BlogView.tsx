@@ -14,33 +14,64 @@ export const BlogView: React.FC<BlogViewProps> = ({ slug, onNavigate }) => {
 
   // If viewing an individual article
   if (currentPost) {
-    const articleSchema = {
+    const articleGraph = {
       '@context': 'https://schema.org',
-      '@type': 'Article',
-      headline: currentPost.title,
-      description: currentPost.summary,
-      author: {
-        '@type': 'Person',
-        name: currentPost.author.name,
-        jobTitle: currentPost.author.role
-      },
-      datePublished: '2026-10-28',
-      dateModified: '2026-10-30',
-      publisher: {
-        '@type': 'Organization',
-        name: 'SkPDF',
-        logo: {
-          '@type': 'ImageObject',
-          url: 'https://skpdf.com/logo.png'
+      '@graph': [
+        {
+          '@type': 'Article',
+          headline: currentPost.title,
+          description: currentPost.summary,
+          author: {
+            '@type': 'Person',
+            name: currentPost.author.name,
+            jobTitle: currentPost.author.role
+          },
+          datePublished: '2026-10-28',
+          dateModified: '2026-10-31',
+          mainEntityOfPage: {
+            '@type': 'WebPage',
+            '@id': `https://skpdf-mr7m.vercel.app/blog/${currentPost.slug}`
+          },
+          publisher: {
+            '@type': 'Organization',
+            name: 'SkPDF',
+            logo: {
+              '@type': 'ImageObject',
+              url: 'https://skpdf-mr7m.vercel.app/logo.png'
+            }
+          }
+        },
+        {
+          '@type': 'BreadcrumbList',
+          itemListElement: [
+            {
+              '@type': 'ListItem',
+              position: 1,
+              name: 'Home',
+              item: 'https://skpdf-mr7m.vercel.app/'
+            },
+            {
+              '@type': 'ListItem',
+              position: 2,
+              name: 'Blog',
+              item: 'https://skpdf-mr7m.vercel.app/blog'
+            },
+            {
+              '@type': 'ListItem',
+              position: 3,
+              name: currentPost.title,
+              item: `https://skpdf-mr7m.vercel.app/blog/${currentPost.slug}`
+            }
+          ]
         }
-      }
+      ]
     };
 
     return (
       <div className="max-w-4xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(articleGraph) }}
         />
 
         <Breadcrumbs

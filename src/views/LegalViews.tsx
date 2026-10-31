@@ -233,19 +233,28 @@ vercel --prod`}
           </pre>
         </div>
 
-        <h2 className="text-xl font-bold text-slate-900 dark:text-white">Google Search Console Verification & Sitemap Submission</h2>
-        <ol className="list-decimal pl-5 space-y-2 text-xs">
+        <h2 className="text-xl font-bold text-slate-900 dark:text-white">Google Search Console Verification & Sitemap Submission Checklist</h2>
+        <ol className="list-decimal pl-5 space-y-3 text-xs leading-relaxed">
           <li>
-            <strong>Add Property:</strong> Go to <a href="https://search.google.com/search-console" target="_blank" rel="noreferrer" className="text-rose-600 underline">Google Search Console</a> and add <code>https://skpdf.com</code> (or your custom domain).
+            <strong>Open Search Console:</strong> Navigate to <a href="https://search.google.com/search-console" target="_blank" rel="noreferrer" className="text-rose-600 underline font-semibold">Google Search Console</a>.
           </li>
           <li>
-            <strong>Verify Ownership:</strong> Use HTML tag verification or DNS TXT record with your domain registrar.
+            <strong>Add Property:</strong> Select <em>URL prefix</em> and enter your exact production URL: <code className="bg-slate-100 dark:bg-slate-800 px-1.5 py-0.5 rounded text-rose-600 font-mono">https://skpdf-mr7m.vercel.app</code>.
           </li>
           <li>
-            <strong>Submit XML Sitemap:</strong> Under the &quot;Sitemaps&quot; tab in the left sidebar, enter <code>sitemap.xml</code> (which maps to <code>https://skpdf.com/sitemap.xml</code>) and click Submit.
+            <strong>HTML Tag Verification:</strong> Under &quot;Other verification methods&quot;, choose <em>HTML tag</em>. Copy the meta tag code (e.g., <code className="font-mono text-[11px]">&lt;meta name=&quot;google-site-verification&quot; content=&quot;...&quot; /&gt;</code>).
           </li>
           <li>
-            <strong>Index Status:</strong> Google crawlers will discover all 18+ high-intent tool landing pages, Schema.org WebApplication markup, and educational blog tutorials.
+            <strong>Insert Code in index.html:</strong> Paste your actual verification token into the designated placeholder in <code className="font-mono">index.html</code> (line 16).
+          </li>
+          <li>
+            <strong>Deploy to Vercel:</strong> Push changes or re-deploy to Vercel.
+          </li>
+          <li>
+            <strong>Verify Ownership:</strong> Return to Google Search Console and click <strong>Verify</strong>.
+          </li>
+          <li>
+            <strong>Submit XML Sitemap:</strong> Under the &quot;Sitemaps&quot; section in the left sidebar, enter <code className="font-mono font-semibold">sitemap.xml</code> and click <strong>Submit</strong>. Google will automatically crawl all 18+ tools and tutorial pages!
           </li>
         </ol>
       </div>

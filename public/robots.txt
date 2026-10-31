@@ -1,10 +1,36 @@
 # SkPDF Robots.txt
-# https://skpdf.com/robots.txt
+# Canonical Property: https://skpdf-mr7m.vercel.app
 
 User-agent: *
 Allow: /
+Allow: /blog
+Allow: /blog/*
+Allow: /edit-pdf
+Allow: /merge-pdf
+Allow: /split-pdf
+Allow: /compress-pdf
+Allow: /pdf-to-word
+Allow: /word-to-pdf
+Allow: /pdf-ocr
+Allow: /scanned-pdf-to-word
+Allow: /pdf-to-jpg
+Allow: /jpg-to-pdf
+Allow: /organize-pdf
+Allow: /protect-pdf
+Allow: /unlock-pdf
+Allow: /redact-pdf
+Allow: /remove-pdf-background
+Allow: /change-image-background
+Allow: /docx-editor
+Allow: /pdf-metadata
+Allow: /ai-pdf-assistant
+Allow: /privacy
+Allow: /terms
+Allow: /about
+Allow: /contact
+
+# Disallow internal backend endpoints
 Disallow: /api/
-Disallow: /temp/
 
 # Sitemaps
-Sitemap: https://skpdf.com/sitemap.xml
+Sitemap: https://skpdf-mr7m.vercel.app/sitemap.xml

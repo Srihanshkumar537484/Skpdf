@@ -1,123 +1,214 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Homepage -->
   <url>
-    <loc>https://skpdf.com/</loc>
-    <lastmod>2026-10-30</lastmod>
+    <loc>https://skpdf-mr7m.vercel.app/</loc>
+    <lastmod>2026-10-31</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
+
+  <!-- Core PDF Tools (Landing Pages) -->
   <url>
-    <loc>https://skpdf.com/edit-pdf</loc>
-    <lastmod>2026-10-30</lastmod>
+    <loc>https://skpdf-mr7m.vercel.app/edit-pdf</loc>
+    <lastmod>2026-10-31</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.95</priority>
   </url>
   <url>
-    <loc>https://skpdf.com/merge-pdf</loc>
-    <lastmod>2026-10-30</lastmod>
+    <loc>https://skpdf-mr7m.vercel.app/merge-pdf</loc>
+    <lastmod>2026-10-31</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.95</priority>
   </url>
   <url>
-    <loc>https://skpdf.com/split-pdf</loc>
-    <lastmod>2026-10-30</lastmod>
+    <loc>https://skpdf-mr7m.vercel.app/split-pdf</loc>
+    <lastmod>2026-10-31</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.90</priority>
   </url>
   <url>
-    <loc>https://skpdf.com/compress-pdf</loc>
-    <lastmod>2026-10-30</lastmod>
+    <loc>https://skpdf-mr7m.vercel.app/compress-pdf</loc>
+    <lastmod>2026-10-31</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.95</priority>
   </url>
   <url>
-    <loc>https://skpdf.com/pdf-to-word</loc>
-    <lastmod>2026-10-30</lastmod>
+    <loc>https://skpdf-mr7m.vercel.app/pdf-to-word</loc>
+    <lastmod>2026-10-31</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.95</priority>
   </url>
   <url>
-    <loc>https://skpdf.com/word-to-pdf</loc>
-    <lastmod>2026-10-30</lastmod>
+    <loc>https://skpdf-mr7m.vercel.app/word-to-pdf</loc>
+    <lastmod>2026-10-31</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.90</priority>
   </url>
   <url>
-    <loc>https://skpdf.com/pdf-ocr</loc>
-    <lastmod>2026-10-30</lastmod>
+    <loc>https://skpdf-mr7m.vercel.app/pdf-ocr</loc>
+    <lastmod>2026-10-31</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.95</priority>
   </url>
   <url>
-    <loc>https://skpdf.com/scanned-pdf-to-word</loc>
-    <lastmod>2026-10-30</lastmod>
+    <loc>https://skpdf-mr7m.vercel.app/scanned-pdf-to-word</loc>
+    <lastmod>2026-10-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
+  </url>
+  <url>
+    <loc>https://skpdf-mr7m.vercel.app/pdf-to-jpg</loc>
+    <lastmod>2026-10-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
+  </url>
+  <url>
+    <loc>https://skpdf-mr7m.vercel.app/jpg-to-pdf</loc>
+    <lastmod>2026-10-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
+  </url>
+  <url>
+    <loc>https://skpdf-mr7m.vercel.app/organize-pdf</loc>
+    <lastmod>2026-10-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://skpdf.com/pdf-to-jpg</loc>
-    <lastmod>2026-10-30</lastmod>
+    <loc>https://skpdf-mr7m.vercel.app/protect-pdf</loc>
+    <lastmod>2026-10-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://skpdf.com/jpg-to-pdf</loc>
-    <lastmod>2026-10-30</lastmod>
+    <loc>https://skpdf-mr7m.vercel.app/unlock-pdf</loc>
+    <lastmod>2026-10-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://skpdf.com/organize-pdf</loc>
-    <lastmod>2026-10-30</lastmod>
+    <loc>https://skpdf-mr7m.vercel.app/redact-pdf</loc>
+    <lastmod>2026-10-31</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://skpdf.com/protect-pdf</loc>
-    <lastmod>2026-10-30</lastmod>
+    <loc>https://skpdf-mr7m.vercel.app/remove-pdf-background</loc>
+    <lastmod>2026-10-31</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.80</priority>
   </url>
   <url>
-    <loc>https://skpdf.com/unlock-pdf</loc>
-    <lastmod>2026-10-30</lastmod>
+    <loc>https://skpdf-mr7m.vercel.app/change-image-background</loc>
+    <lastmod>2026-10-31</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.80</priority>
   </url>
   <url>
-    <loc>https://skpdf.com/redact-pdf</loc>
-    <lastmod>2026-10-30</lastmod>
+    <loc>https://skpdf-mr7m.vercel.app/docx-editor</loc>
+    <lastmod>2026-10-31</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.80</priority>
   </url>
   <url>
-    <loc>https://skpdf.com/remove-pdf-background</loc>
-    <lastmod>2026-10-30</lastmod>
+    <loc>https://skpdf-mr7m.vercel.app/pdf-metadata</loc>
+    <lastmod>2026-10-31</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.75</priority>
   </url>
   <url>
-    <loc>https://skpdf.com/change-image-background</loc>
-    <lastmod>2026-10-30</lastmod>
+    <loc>https://skpdf-mr7m.vercel.app/ai-pdf-assistant</loc>
+    <lastmod>2026-10-31</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- Blog Knowledge Hub -->
+  <url>
+    <loc>https://skpdf-mr7m.vercel.app/blog</loc>
+    <lastmod>2026-10-31</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://skpdf.com/docx-editor</loc>
-    <lastmod>2026-10-30</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://skpdf-mr7m.vercel.app/blog/how-to-edit-existing-text-in-pdf-online-free</loc>
+    <lastmod>2026-10-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
   </url>
   <url>
-    <loc>https://skpdf.com/pdf-metadata</loc>
-    <lastmod>2026-10-30</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
+    <loc>https://skpdf-mr7m.vercel.app/blog/how-to-compress-large-pdf-without-losing-quality</loc>
+    <lastmod>2026-10-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
   </url>
   <url>
-    <loc>https://skpdf.com/blog</loc>
-    <lastmod>2026-10-30</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
+    <loc>https://skpdf-mr7m.vercel.app/blog/how-to-convert-images-into-pdf</loc>
+    <lastmod>2026-10-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://skpdf-mr7m.vercel.app/blog/how-to-merge-multiple-pdf-files</loc>
+    <lastmod>2026-10-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://skpdf-mr7m.vercel.app/blog/how-to-convert-pdf-to-word</loc>
+    <lastmod>2026-10-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://skpdf-mr7m.vercel.app/blog/how-ocr-pdf-editing-works</loc>
+    <lastmod>2026-10-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://skpdf-mr7m.vercel.app/blog/scanned-pdf-to-word-hindi-english-ocr-guide</loc>
+    <lastmod>2026-10-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://skpdf-mr7m.vercel.app/blog/permanent-pdf-redaction-vs-black-highlighter-security</loc>
+    <lastmod>2026-10-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+
+  <!-- Legal & Support -->
+  <url>
+    <loc>https://skpdf-mr7m.vercel.app/privacy</loc>
+    <lastmod>2026-10-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.60</priority>
+  </url>
+  <url>
+    <loc>https://skpdf-mr7m.vercel.app/terms</loc>
+    <lastmod>2026-10-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.60</priority>
+  </url>
+  <url>
+    <loc>https://skpdf-mr7m.vercel.app/about</loc>
+    <lastmod>2026-10-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.60</priority>
+  </url>
+  <url>
+    <loc>https://skpdf-mr7m.vercel.app/contact</loc>
+    <lastmod>2026-10-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.60</priority>
+  </url>
+  <url>
+    <loc>https://skpdf-mr7m.vercel.app/seo-deployment-guide</loc>
+    <lastmod>2026-10-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.60</priority>
   </url>
 </urlset>

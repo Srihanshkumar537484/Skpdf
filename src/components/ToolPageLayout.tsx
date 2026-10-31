@@ -16,26 +16,70 @@ export const ToolPageLayout: React.FC<ToolPageLayoutProps> = ({ tool, onNavigate
   // Find 4 related tools in same category or popular
   const relatedTools = TOOLS.filter((t) => t.id !== tool.id && (t.category === tool.category || t.popular)).slice(0, 4);
 
-  // Schema.org FAQPage structured data
-  const faqSchema = {
+  // Schema.org Structured Data: WebApplication, FAQPage, and BreadcrumbList
+  const structuredData = {
     '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    mainEntity: tool.faqs.map((faq) => ({
-      '@type': 'Question',
-      name: faq.question,
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: faq.answer
+    '@graph': [
+      {
+        '@type': 'WebApplication',
+        '@id': `https://skpdf-mr7m.vercel.app/${tool.slug}#software`,
+        name: tool.name,
+        url: `https://skpdf-mr7m.vercel.app/${tool.slug}`,
+        applicationCategory: 'ProductivityApplication',
+        operatingSystem: 'All',
+        description: tool.metaDescription,
+        offers: {
+          '@type': 'Offer',
+          price: '0',
+          priceCurrency: 'USD'
+        },
+        featureList: tool.features
+      },
+      {
+        '@type': 'BreadcrumbList',
+        '@id': `https://skpdf-mr7m.vercel.app/${tool.slug}#breadcrumbs`,
+        itemListElement: [
+          {
+            '@type': 'ListItem',
+            position: 1,
+            name: 'Home',
+            item: 'https://skpdf-mr7m.vercel.app/'
+          },
+          {
+            '@type': 'ListItem',
+            position: 2,
+            name: 'Tools',
+            item: 'https://skpdf-mr7m.vercel.app/'
+          },
+          {
+            '@type': 'ListItem',
+            position: 3,
+            name: tool.name,
+            item: `https://skpdf-mr7m.vercel.app/${tool.slug}`
+          }
+        ]
+      },
+      {
+        '@type': 'FAQPage',
+        '@id': `https://skpdf-mr7m.vercel.app/${tool.slug}#faq`,
+        mainEntity: tool.faqs.map((faq) => ({
+          '@type': 'Question',
+          name: faq.question,
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: faq.answer
+          }
+        }))
       }
-    }))
+    ]
   };
 
   return (
     <div className="min-h-screen py-8 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-      {/* Inject Schema.org FAQPage JSON-LD */}
+      {/* Inject Schema.org JSON-LD */}
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
 
       {/* Breadcrumb Navigation */}
