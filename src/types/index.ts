@@ -1,5 +1,6 @@
 export type ToolCategory =
   | 'all'
+  | 'ai'
   | 'organize'
   | 'edit'
   | 'convert-from'

@@ -1,6 +1,44 @@
 import { PDFTool, ToolCategory } from '../types';
 
 export const TOOLS: PDFTool[] = [
+  // --- AI PDF TOOLS ---
+  {
+    id: 'ai-pdf-assistant',
+    slug: 'ai-pdf-assistant',
+    name: 'AI PDF Assistant (Summarize & Chat)',
+    shortDescription: 'Chat with documents, generate executive summaries, and translate between English and Hindi using Gemini 3.8 Flash.',
+    category: 'ai',
+    popular: true,
+    badge: 'Gemini AI',
+    seoTitle: 'AI PDF Assistant – Summarize & Chat with PDF Documents | SkPDF',
+    metaDescription: 'Ask questions to your PDF, generate bulleted executive summaries, translate between English & Hindi, and rewrite clauses using Gemini 3.8 Flash AI.',
+    h1: 'AI PDF Assistant – Chat with Documents & Summarize',
+    keywords: ['ai pdf', 'chat with pdf', 'ai pdf summarizer', 'ask pdf', 'gemini pdf', 'summarize pdf online free'],
+    features: [
+      'Interactive Chat: Ask any question about contracts, reports, or research papers',
+      'Instant Executive Summaries with bullet points and action items',
+      'Bilingual Translation: Accurate translation between English and Hindi',
+      'Clause Rewriting: Proofread and convert text into professional business tone',
+      'Powered by high-throughput Gemini 3.8 Flash'
+    ],
+    howToSteps: [
+      'Upload your PDF document into the drop zone.',
+      'Select "AI Summary" for an instant overview or "Chat with PDF" to ask questions.',
+      'Ask specific questions or select pre-made analysis prompts.',
+      'Copy the generated insights or export formatted answers.'
+    ],
+    faqs: [
+      {
+        question: 'How does the AI analyze my PDF document?',
+        answer: 'SkPDF extracts page text and analyzes it securely using Google Gemini 3.8 Flash to synthesize summaries and answer specific questions strictly based on the provided document text.'
+      },
+      {
+        question: 'Can I chat in Hindi or ask for Hindi summaries?',
+        answer: 'Yes! You can toggle between English and Hindi for both document summarization and interactive questions.'
+      }
+    ],
+    acceptedFileTypes: '.pdf'
+  },
   // --- PDF EDITING ---
   {
     id: 'edit-pdf',
@@ -579,6 +617,7 @@ export const TOOLS: PDFTool[] = [
 
 export const CATEGORIES: { id: ToolCategory; label: string; count?: number }[] = [
   { id: 'all', label: 'All Tools' },
+  { id: 'ai', label: '✨ AI Tools' },
   { id: 'organize', label: 'Organize PDF' },
   { id: 'edit', label: 'Edit PDF' },
   { id: 'convert-from', label: 'Convert From PDF' },

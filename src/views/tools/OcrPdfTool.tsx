@@ -4,7 +4,8 @@ import { runOcrRecognition, OcrJobResult } from '../../utils/ocrUtils';
 import { renderPdfPage } from '../../utils/pdfUtils';
 import { createWordDocumentFromText } from '../../utils/docxUtils';
 import { triggerFileDownload } from '../../utils/pdfUtils';
-import { Globe, RefreshCw, Copy, Check, FileDown, Sparkles } from 'lucide-react';
+import { enhanceOcrTextWithAi } from '../../services/aiService';
+import { Globe, RefreshCw, Copy, Check, FileDown, Sparkles, Wand2 } from 'lucide-react';
 
 export const OcrPdfTool: React.FC = () => {
   const [file, setFile] = useState<File | null>(null);
@@ -14,6 +15,20 @@ export const OcrPdfTool: React.FC = () => {
   const [progressPercent, setProgressPercent] = useState<number>(0);
   const [result, setResult] = useState<OcrJobResult | null>(null);
   const [copied, setCopied] = useState(false);
+  const [isAiEnhancing, setIsAiEnhancing] = useState(false);
+
+  const handleAiEnhance = async () => {
+    if (!result || !result.fullText) return;
+    setIsAiEnhancing(true);
+    try {
+      const cleaned = await enhanceOcrTextWithAi(result.fullText, language);
+      setResult({ ...result, fullText: cleaned, confidence: 99 });
+    } catch (err: any) {
+      alert('AI OCR enhancement error: ' + err.message);
+    } finally {
+      setIsAiEnhancing(false);
+    }
+  };
 
   const handleFile = (files: File[]) => {
     if (files.length > 0) {
@@ -165,7 +180,17 @@ export const OcrPdfTool: React.FC = () => {
               </p>
             </div>
 
-            <div className="flex items-center gap-2">
+            <div className="flex flex-wrap items-center gap-2">
+              <button
+                onClick={handleAiEnhance}
+                disabled={isAiEnhancing}
+                className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold text-rose-700 dark:text-rose-300 bg-rose-50 dark:bg-rose-950/60 border border-rose-200 dark:border-rose-900/60 hover:bg-rose-100 rounded-xl transition-colors"
+                title="Use Gemini AI to correct broken characters, matras, and format text"
+              >
+                {isAiEnhancing ? <RefreshCw className="w-3.5 h-3.5 animate-spin" /> : <Sparkles className="w-3.5 h-3.5 text-rose-600" />}
+                <span>{isAiEnhancing ? 'Gemini AI Fixing...' : '✨ AI Fix & Enhance OCR'}</span>
+              </button>
+
               <button
                 onClick={handleCopy}
                 className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold text-slate-700 dark:text-slate-200 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:bg-slate-100 rounded-xl transition-colors"

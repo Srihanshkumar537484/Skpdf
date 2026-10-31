@@ -18,6 +18,7 @@ import { ImageBackgroundTool } from './tools/ImageBackgroundTool';
 import { RemovePdfBackgroundTool } from './tools/RemovePdfBackgroundTool';
 import { DocxEditorTool } from './tools/DocxEditorTool';
 import { MetadataPdfTool } from './tools/MetadataPdfTool';
+import { AiPdfAssistantTool } from './tools/AiPdfAssistantTool';
 
 interface ToolViewProps {
   slug: string;
@@ -44,6 +45,8 @@ export const ToolView: React.FC<ToolViewProps> = ({ slug, onNavigate }) => {
 
   const renderToolEngine = () => {
     switch (tool.slug) {
+      case 'ai-pdf-assistant':
+        return <AiPdfAssistantTool />;
       case 'edit-pdf':
         return <EditPdfTool />;
       case 'merge-pdf':
