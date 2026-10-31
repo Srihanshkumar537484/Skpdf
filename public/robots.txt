@@ -1,0 +1,10 @@
+# SkPDF Robots.txt
+# https://skpdf.com/robots.txt
+
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /temp/
+
+# Sitemaps
+Sitemap: https://skpdf.com/sitemap.xml

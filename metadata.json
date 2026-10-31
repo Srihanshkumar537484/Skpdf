@@ -1,0 +1,6 @@
+{
+  "name": "SkPDF - All-in-One Online PDF Editor, Converter, OCR & Document Tools Platform",
+  "description": "Free, secure online PDF editor, converter, OCR, merger, compressor, and document tools platform. Edit existing text, convert PDF to Word, perform Hindi & English OCR, and manage documents securely.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
