@@ -7,6 +7,8 @@ import { ToolView } from './views/ToolView';
 import { BlogView } from './views/BlogView';
 import { LegalView } from './views/LegalViews';
 import { NotFoundView } from './views/NotFoundView';
+import { UniversalConverterView } from './views/UniversalConverterView';
+import { AllConversionsView } from './views/AllConversionsView';
 import { getToolBySlug } from './data/toolsData';
 import { getBlogPostBySlug } from './data/blogData';
 import { initGA, trackPageView } from './utils/analytics';
@@ -49,6 +51,12 @@ export default function App() {
     if (!cleanPath) {
       pageTitle = 'SkPDF – All-in-One Online PDF Editor, Converter, OCR & Document Tools';
       metaDescription = 'Free, secure online PDF editor, converter, OCR, merger, and document tools. Edit existing text, convert PDF to Word, perform Hindi & English OCR, and compress documents.';
+    } else if (cleanPath === 'convert') {
+      pageTitle = 'Universal File Converter – Convert Images, Spreadsheets, Word & Data | SkPDF';
+      metaDescription = 'Free client-side universal file converter. Convert between JPG, PNG, WebP, Excel XLSX, Word DOCX, CSV, PDF, and JSON securely in your browser.';
+    } else if (cleanPath === 'all-conversions') {
+      pageTitle = 'All File Conversions Directory – 40+ Format Pairs | SkPDF';
+      metaDescription = 'Browse 40+ verified client-side file conversion tools across Images, Spreadsheets, Documents, Data formats, and Archives on SkPDF.';
     } else if (cleanPath.startsWith('blog/')) {
       const blogSlug = cleanPath.replace('blog/', '');
       const post = getBlogPostBySlug(blogSlug);
@@ -136,6 +144,14 @@ export default function App() {
 
     if (!cleanPath) {
       return <HomeView onNavigate={navigateTo} onOpenSearch={() => setIsSearchOpen(true)} />;
+    }
+
+    if (cleanPath === 'convert') {
+      return <UniversalConverterView onNavigate={navigateTo} />;
+    }
+
+    if (cleanPath === 'all-conversions') {
+      return <AllConversionsView onNavigate={navigateTo} />;
     }
 
     if (cleanPath.startsWith('blog/')) {

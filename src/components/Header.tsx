@@ -97,6 +97,15 @@ export const Header: React.FC<HeaderProps> = ({ currentPath, onNavigate, onOpenS
           </div>
 
           <button
+            onClick={() => onNavigate('/convert')}
+            className={`flex items-center gap-1.5 py-1 hover:text-slate-900 dark:hover:text-white transition-colors whitespace-nowrap shrink-0 ${
+              currentPath === '/convert' || currentPath === '/all-conversions' ? 'text-rose-600 dark:text-rose-500 font-semibold' : ''
+            }`}
+          >
+            <span>Universal Converter</span>
+          </button>
+
+          <button
             onClick={() => onNavigate('/ai-pdf-assistant')}
             className={`flex items-center gap-1.5 py-1 hover:text-slate-900 dark:hover:text-white transition-colors whitespace-nowrap shrink-0 ${
               currentPath === '/ai-pdf-assistant' ? 'text-rose-600 dark:text-rose-500 font-semibold' : ''

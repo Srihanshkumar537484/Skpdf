@@ -135,7 +135,23 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
             Convert Files
           </h3>
           <ul className="space-y-2 text-xs">
-            {convertTools.slice(0, 6).map((t) => (
+            <li>
+              <button
+                onClick={() => onNavigate('/convert')}
+                className="text-rose-600 dark:text-rose-400 font-semibold hover:underline transition-colors text-left flex items-center gap-1"
+              >
+                <span>⚡ Universal Converter</span>
+              </button>
+            </li>
+            <li>
+              <button
+                onClick={() => onNavigate('/all-conversions')}
+                className="hover:text-rose-600 dark:hover:text-rose-400 transition-colors text-left"
+              >
+                All 40+ Conversions Directory
+              </button>
+            </li>
+            {convertTools.slice(0, 5).map((t) => (
               <li key={t.id}>
                 <button
                   onClick={() => onNavigate(`/${t.slug}`)}

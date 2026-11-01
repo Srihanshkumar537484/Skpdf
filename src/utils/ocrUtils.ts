@@ -1,6 +1,6 @@
 import { createWorker } from 'tesseract.js';
 
-export interface OcrResultBlock {
+export interface OcrWordBlock {
   text: string;
   confidence: number;
   bbox: {
@@ -11,11 +11,24 @@ export interface OcrResultBlock {
   };
 }
 
+export interface OcrResultBlock {
+  text: string;
+  confidence: number;
+  bbox: {
+    x0: number;
+    y0: number;
+    x1: number;
+    y1: number;
+  };
+  words?: OcrWordBlock[];
+}
+
 export interface OcrJobResult {
   fullText: string;
   confidence: number;
   blocks: OcrResultBlock[];
   language: string;
+  extractedTable?: string[][];
 }
 
 export type OcrProgressCallback = (progress: {
@@ -24,8 +37,57 @@ export type OcrProgressCallback = (progress: {
 }) => void;
 
 /**
+ * Heuristic Table Clustering:
+ * Takes recognized lines/words and organizes them into a tabular 2D array of rows and columns.
+ */
+export function reconstructTableFromOcr(lines: { text: string; words?: { text: string; bbox: any }[] }[]): string[][] {
+  if (!lines || lines.length === 0) return [];
+
+  const tableRows: string[][] = [];
+
+  for (const line of lines) {
+    if (!line.text || !line.text.trim()) continue;
+
+    // If word bounding boxes exist, split by spatial gaps
+    if (line.words && line.words.length > 1) {
+      const rowCells: string[] = [];
+      let currentCellWords: string[] = [line.words[0].text];
+
+      for (let i = 1; i < line.words.length; i++) {
+        const prevWord = line.words[i - 1];
+        const curWord = line.words[i];
+        const gap = curWord.bbox.x0 - prevWord.bbox.x1;
+
+        // If gap is wider than 25px or double standard space, treat as separate column
+        if (gap > 24) {
+          rowCells.push(currentCellWords.join(' ').trim());
+          currentCellWords = [curWord.text];
+        } else {
+          currentCellWords.push(curWord.text);
+        }
+      }
+      if (currentCellWords.length > 0) {
+        rowCells.push(currentCellWords.join(' ').trim());
+      }
+      tableRows.push(rowCells);
+    } else {
+      // Split by tab, pipe, or multiple spaces
+      const parts = line.text.split(/ {2,}|\t|\|/).map((p) => p.trim()).filter(Boolean);
+      tableRows.push(parts.length > 0 ? parts : [line.text.trim()]);
+    }
+  }
+
+  // Normalize column count
+  const maxCols = Math.max(1, ...tableRows.map((r) => r.length));
+  return tableRows.map((row) => {
+    while (row.length < maxCols) row.push('');
+    return row;
+  });
+}
+
+/**
  * Runs Tesseract OCR on an image URL, canvas, or blob.
- * Supports English ('eng'), Hindi ('hin'), and bilingual ('eng+hin').
+ * Supports English ('eng'), Hindi ('hin'), and bilingual ('hin+eng').
  */
 export async function runOcrRecognition(
   imageSource: string | HTMLCanvasElement | Blob,
@@ -52,24 +114,49 @@ export async function runOcrRecognition(
     await worker.terminate();
 
     const blocks: OcrResultBlock[] = [];
+    const linesForTable: { text: string; words?: { text: string; bbox: any }[] }[] = [];
+
     const dataAny = ret.data as any;
-    if (dataAny && dataAny.paragraphs) {
-      for (const p of dataAny.paragraphs) {
-        if (p.text && p.text.trim()) {
+
+    if (dataAny && dataAny.lines) {
+      for (const line of dataAny.lines) {
+        if (line.text && line.text.trim()) {
+          const wordBlocks: OcrWordBlock[] = [];
+          if (line.words) {
+            for (const w of line.words) {
+              if (w.text && w.text.trim()) {
+                wordBlocks.push({
+                  text: w.text.trim(),
+                  confidence: Math.round(w.confidence || 0),
+                  bbox: w.bbox || { x0: 0, y0: 0, x1: 0, y1: 0 }
+                });
+              }
+            }
+          }
+
+          linesForTable.push({
+            text: line.text.trim(),
+            words: wordBlocks
+          });
+
           blocks.push({
-            text: p.text.trim(),
-            confidence: Math.round(p.confidence || 0),
-            bbox: p.bbox || { x0: 0, y0: 0, x1: 0, y1: 0 }
+            text: line.text.trim(),
+            confidence: Math.round(line.confidence || 0),
+            bbox: line.bbox || { x0: 0, y0: 0, x1: 0, y1: 0 },
+            words: wordBlocks
           });
         }
       }
     }
 
+    const extractedTable = reconstructTableFromOcr(linesForTable);
+
     return {
       fullText: ret.data.text || '',
       confidence: Math.round(ret.data.confidence || 0),
       blocks,
-      language
+      language,
+      extractedTable
     };
   } catch (error) {
     await worker.terminate();

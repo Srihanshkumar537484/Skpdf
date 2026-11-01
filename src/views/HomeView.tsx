@@ -124,6 +124,41 @@ export const HomeView: React.FC<HomeViewProps> = ({ onNavigate, onOpenSearch }) 
         </div>
       </section>
 
+      {/* Universal File Converter Feature Banner */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-rose-600 via-rose-500 to-amber-500 p-6 sm:p-8 text-white shadow-xl">
+          <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div className="space-y-2 text-center md:text-left">
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/20 backdrop-blur-xs text-xs font-bold uppercase tracking-wider text-white">
+                <Sparkles className="w-3.5 h-3.5" />
+                <span>New: Universal File Converter Suite</span>
+              </div>
+              <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight">
+                Convert Images, Spreadsheets, Word, Presentations & Data
+              </h2>
+              <p className="text-white/90 text-xs sm:text-sm max-w-2xl leading-relaxed">
+                40+ format pipelines with genuine client-side WebAssembly execution. Convert Excel XLSX to CSV or PDF, Word DOCX to PDF, JPG to WebP/PNG, JSON to Excel, and PPTX to PDF with zero cloud storage.
+              </p>
+            </div>
+
+            <div className="flex flex-wrap items-center gap-3 shrink-0">
+              <button
+                onClick={() => onNavigate('/convert')}
+                className="px-6 py-3 bg-white text-rose-600 hover:bg-slate-100 text-xs sm:text-sm font-bold rounded-2xl shadow-lg transition-transform active:scale-95 whitespace-nowrap"
+              >
+                Launch Universal Converter
+              </button>
+              <button
+                onClick={() => onNavigate('/all-conversions')}
+                className="px-4 py-3 bg-white/10 hover:bg-white/20 text-white text-xs sm:text-sm font-semibold rounded-2xl backdrop-blur-xs transition-colors whitespace-nowrap"
+              >
+                Browse 40+ Format Pairs →
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Main Tools Catalog Section */}
       <section id="tools" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Category Tabs (Interactive Segmented Control) */}
